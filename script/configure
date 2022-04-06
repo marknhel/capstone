@@ -4,38 +4,38 @@
 addserver() {
 	printf "\tServer Name : "; read -r servername
 	printf "\tServer Address and Port : "; read -r serveraddress
-	printf "\tserver $servername $serveraddress\n" | tee -a $file
+	printf "\tserver %s %s\n" "$servername" "$serveraddress" | tee -a "$file"
 }
 
-file="$HOME/capstone/configuration/haproxy.cfg"
+file="$HOME"/capstone/configuration/haproxy.cfg
 [ -z "$file" ] && touch "$file"
 
 
-printf "global\n" | tee $file
-printf "\tdaemon\n" | tee $file
-printf "\tmaxconn 256\n" | tee $file
-printf "\tlog /dev/log local0 debug\n" | tee $file
-printf "\tstats socket /run/haproxy.sock user haproxy group haproxy mode 660 level admin\n" | tee $file
-printf "\tmaster-worker\n\n" | tee $file
+printf "global\n" | tee "$file"
+printf "\tdaemon\n" | tee "$file"
+printf "\tmaxconn 256\n" | tee "$file"
+printf "\tlog /dev/log local0 debug\n" | tee "$file"
+printf "\tstats socket /run/haproxy.sock user haproxy group haproxy mode 660 level admin\n" | tee "$file"
+printf "\tmaster-worker\n\n" | tee "$file"
 
-printf "defaults\n" | tee $file
-printf "\tlog global\n" | tee $file
-printf "\tmode http\n" | tee $file
-printf "\toption httplog\n" | tee $file
-printf "\ttimeout connect 10s\n" | tee $file
-printf "\ttimeout client 30s\n" | tee $file
-printf "\ttimeout server 30s\n" | tee $file
-printf "\ttimeout http-request 30s\n\n" | tee $file
+printf "defaults\n" | tee "$file"
+printf "\tlog global\n" | tee "$file"
+printf "\tmode http\n" | tee "$file"
+printf "\toption httplog\n" | tee "$file"
+printf "\ttimeout connect 10s\n" | tee "$file"
+printf "\ttimeout client 30s\n" | tee "$file"
+printf "\ttimeout server 30s\n" | tee "$file"
+printf "\ttimeout http-request 30s\n\n" | tee "$file"
 
-printf "\nfrontend localhttp\n" | tee $file
-printf "\tbind :80\n" | tee -a $file
-printf "\tdefault_backend localservers\n\n" | tee -a $file
+printf "\nfrontend localhttp\n" | tee "$file"
+printf "\tbind :80\n" | tee -a "$file"
+printf "\tdefault_backend localservers\n\n" | tee -a "$file"
 
-printf "backend localservers\n" | tee -a $file
-printf "\tbalance leastconn\n" | tee -a $file
+printf "backend localservers\n" | tee -a "$file"
+printf "\tbalance leastconn\n" | tee -a "$file"
 
 addserver
 addserver
 addserver
 
-sudo haproxy -f $file
+sudo haproxy -f "$file"
