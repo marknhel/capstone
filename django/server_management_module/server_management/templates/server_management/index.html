@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+	<div class="wrapper wrapper--w680">
+		<div class="card card-4">
+			<div class="card-body">
+				<h1>Server 1</h1>
+				<h2 class="title">Hello, {{user.profile_id}} </h2>
+				<p>
+				Your MAC address is {{ user.mac_address }}.
+				</p>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,474 @@
+{% extends 'base.html' %}
+{% block content %}
+{% csrf_token %}
+
+<script type="text/javascript">
+	function populate(s1, s2){
+			var s1 = document.getElementById(s1);
+			var s2 = document.getElementById(s2);
+			s2.innerHTML = "";
+
+			if(s1.value == "College of Agriculture"){
+				var optionArray = [
+					"|-----Choose Option-----",
+					"Bachelor of Science in Agricultural Business Management|Bachelor of Science in Agricultural Business Management",
+					"BSA Agronomy|BSA Agronomy",
+					"BSA Animal Science|BSA Animal Science",
+					"BSA major in Extension Education|BSA major in Extension Education",
+					"BSA Farming Systems|BSA Farming Systems",
+					"BS Agricultural & Bio Systems Engineering|BS Agricultural & Bio Systems Engineering",
+					"BSA Horticulture|BSA Horticulture",
+					"BSA Agricultural Food Processing|BSA Agricultural Food Processing",
+					"DAT Crop Production|DAT Crop Production",
+					"DABMT Food Processing|DABMT Food Processing"
+
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Business Administration and Accountancy"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Science in Accountancy|Bachelor of Science in Accountancy",
+				"Bachelor of Science in Business Administration (BSBA) Business Economics|Bachelor of Science in Business Administration (BSBA) Business Economics",
+				"Bachelor of Science in Business Administration (BSBA) Economics|Bachelor of Science in Business Administration (BSBA) Economics",
+				"Bachelor of Science in Business Administration (BSBA) Management|Bachelor of Science in Business Administration (BSBA) Management",
+				"Bachelor of Science in Business Administration (BSBA) Human Resource Management|Bachelor of Science in Business Administration (BSBA) Human Resource Management",
+				"Bachelor of Science in Business Administration (BSBA) Entrepreneurial Marketing|Bachelor of Science in Business Administration (BSBA) Entrepreneurial Marketing",
+				"Bachelor of Science in Business Administration (BSBA) Marketing Management|Bachelor of Science in Business Administration (BSBA) Marketing Management"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Education"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Secondary Education (BSED) Biology|Bachelor of Secondary Education (BSED) Biology",
+				"Bachelor of Secondary Education (BSED) English|Bachelor of Secondary Education (BSED) English",
+				"Bachelor of Secondary Education (BSED) Filipino|Bachelor of Secondary Education (BSED) Filipino",
+				"Bachelor of Secondary Education (BSED) History|Bachelor of Secondary Education (BSED) History",
+				"Bachelor of Secondary Education (BSED) Mathematics|Bachelor of Secondary Education (BSED) Mathematics",
+				"Bachelor of Secondary Education (BSED) Physics|Bachelor of Secondary Education (BSED) Physics",
+				"Bachelor of Secondary Education (BSED) Technology and Livelihood Education|Bachelor of Secondary Education (BSED) Technology and Livelihood Education",
+				"Bachelor of Secondary Education (BSED) Sciences|Bachelor of Secondary Education (BSED) Sciences",
+				"Bachelor of Secondary Education (BSED) Social Studies|Bachelor of Secondary Education (BSED) Social Studies",
+				"Bachelor of Elementary Education (BEED) major in Early Childhood Education & Development|Bachelor of Elementary Education (BEED) major in Early Childhood Education & Development",
+				"Bachelor of Elementary Education (BEED) major in General Education|Bachelor of Elementary Education (BEED) major in General Education",
+				"BTVTED Home Economics|BTVTED Home Economics",
+				"BTLED Bachelor of Technology and Livelihood Education major in Home Economics|BTLED Bachelor of Technology and Livelihood Education major in Home Economics"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Engineering"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Science in Chemical Engineering|Bachelor of Science in Chemical Engineering",
+				"Bachelor of Science in Civil Engineering|Bachelor of Science in Civil Engineering",
+				"Bachelor of Science in Electronics Engineering|Bachelor of Science in Electronics Engineering",
+				"Bachelor of Science in Electrical Engineering|Bachelor of Science in Electrical Engineering",
+				"Bachelor of Science in Mechanical Engineering|Bachelor of Science in Mechanical Engineering"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "Division of Engineering Technology"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"BS in Engineering Technology (Construction Engineering Management)|BS in Engineering Technology (Construction Engineering Management)",
+				"BS in Engineering Technology (Electrical and Renewable Energy)|BS in Engineering Technology (Electrical and Renewable Energy)",
+				"BS in Engineering Technology (Machining and Fabrication)|BS in Engineering Technology (Machining and Fabrication)",
+				"Diploma in Technology major in Construction Technology|Diploma in Technology major in Construction Technology",
+				"Diploma in Technology major in Machine Shop Technology|Diploma in Technology major in Machine Shop Technology"
+
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Fisheries"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Science in Fisheries|Bachelor of Science in Fisheries",
+				"Diploma in Technology major in Fish Processing|Diploma in Technology major in Fish Processing",
+				"Diploma in Technology major in Aquaculture|Diploma in Technology major in Aquaculture"
+
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Forestry and Environmental Studies"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Science in Forestry|Bachelor of Science in Forestry",
+				"Bachelor of Science in Forestry major in Agroforestry|Bachelor of Science in Forestry major in Agroforestry",
+				"Bachelor of Science in Environmental Science|Bachelor of Science in Environmental Science"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Health Sciences"){
+				var optionArray = [
+				"|-----Choose Option-----",
+					"Bachelor of Science in Nursing|Bachelor of Science in Nursing"
+
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Hotel and Restaurant Management"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Science in Hospitality Management|Bachelor of Science in Hospitality Management",
+				"Bachelor of Science in Tourism Management|Bachelor of Science in Tourism Management",
+				"Bread and Pastry Production|Bread and Pastry Production",
+				"Cookery|Cookery",
+				"Housekeeping|Housekeeping",
+				"Front Office|Front Office",
+				"Tour Guiding Services|Tour Guiding Services",
+				"Food and Beverage Services|Food and Beverage Services"
+
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Information and Computing Sciences"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Science in Computer Science|Bachelor of Science in Computer Science",
+				"Bachelor of Science in Information System|Bachelor of Science in Information System",
+				"Bachelor of Science in Entertainment and Multimedia Computing|Bachelor of Science in Entertainment and Multimedia Computing",
+				"Bachelor of Science in Information Technology (Major in Networking, Database System)|Bachelor of Science in Information Technology (Major in Networking, Database System)"
+
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Natural Sciences and Mathematics"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Science in Biology|Bachelor of Science in Biology",
+				"Bachelor of Science in Chemistry|Bachelor of Science in Chemistry",
+				"Bachelor of Science in Mathematics|Bachelor of Science in Mathematics",
+				"Bachelor of Science in Physics|Bachelor of Science in Physics",
+				"Bachelor of Science in Statistics|Bachelor of Science in Statistics",
+				"Bachelor of Science in Zoology|Bachelor of Science in Zoology",
+				"BS Biology major in Animal Biology|BS Biology major in Animal Biology"
+
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Public Affairs"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Science in Sustainable Community Development|Bachelor of Science in Sustainable Community Development",
+				"Bachelor of Public Administration|Bachelor of Public Administration",
+				"Bachelor of Science in Social Work|Bachelor of Science in Social Work"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Social Sciences and Humanities"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Arts in History|Bachelor of Arts in History",
+				"Bachelor of Arts in Psychology|Bachelor of Arts in Psychology",
+				"Bachelor of Science in Psychology|Bachelor of Science in Psychology",
+				"Bachelor of Arts in Filipino|Bachelor of Arts in Filipino",
+				"Bachelor of Arts in Panitikan|Bachelor of Arts in Panitikan",
+				"Bachelor of Arts in History Philippine and Asian History Track|Bachelor of Arts in History Philippine and Asian History Track",
+				"Bachelor of Arts in History – Public Development Track|Bachelor of Arts in History – Public Development Track",
+				"Bachelor of Arts in History – International History Track|Bachelor of Arts in History – International History Track",
+				"Bachelor of Arts in Sociology|Bachelor of Arts in Sociology",
+				"Bachelor of Arts in Philosophy|Bachelor of Arts in Philosophy",
+				"Bachelor of Library and Information Science|Bachelor of Library and Information Science",
+				"Bachelor of Science in Development Communication|Bachelor of Science in Development Communication",
+				"Bachelor of Arts in Communication Studies|Bachelor of Arts in Communication Studies",
+				"Bachelor of Arts in Journalism|Bachelor of Arts in Journalism",
+				"Bachelor of Science in Communication Arts|Bachelor of Science in Communication Arts",
+				"Bachelor of Arts in English|Bachelor of Arts in English",
+				"Bachelor of Arts in English Language Studies|Bachelor of Arts in English Language Studies",
+				"Bachelor of Arts in Political Studies|Bachelor of Arts in Political Studies",
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Sports, Physical Education and Recreation"){
+				var optionArray = [
+				"|-----Choose Option-----",
+
+				"Bachelor of Science in Physical Education|Bachelor of Science in Physical Education"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "King Faisal Center for Islamic, Arabic and Asian Studies"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Bachelor of Arts in Islamic Studies (Shari’ah)|Bachelor of Arts in Islamic Studies (Shari’ah)",
+				"Bachelor of Science in Teaching Arabic|Bachelor of Science in Teaching Arabic",
+				"Bachelor of Science in International Relations|Bachelor of Science in International Relations"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Law"){
+				var optionArray = [
+				"|-----Choose Option-----",
+
+ 				"Bachelor of Laws|Bachelor of Laws"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "College of Medicine"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Doctor of Medicine|Doctor of Medicine"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+			else if(s1.value == "Graduate School"){
+				var optionArray = [
+				"|-----Choose Option-----",
+				"Ph.D. in Science Education (DOST consortium)|Ph.D. in Science Education (DOST consortium)",
+				"Ph.D. in Educational Management|Ph.D. in Educational Management",
+				"Ph.D. in Language Studies|Ph.D. in Language Studies",
+				"Ph.D. in Philippine Studies|Ph.D. in Philippine Studies",
+				"Doctor of Public Administration (DPA)|Doctor of Public Administration (DPA)",
+				"Master of Science in Animal Science|Master of Science in Animal Science",
+				"Master of Science in Farming Systems|Master of Science in Farming Systems",
+				"Master of Science in Biology|Master of Science in Biology",
+				"Master of Science in Physics|Master of Science in Physics",
+				"Master of Science in Mathematics|Master of Science in Mathematics",
+				"MSCIED Secondary Mathematics|MSCIED Secondary Mathematics",
+				"Master of Science in Physical Education|Master of Science in Physical Education",
+				"Master of Science in Community Development|Master of Science in Community Development",
+				"Master of Public Administration|Master of Public Administration",
+				"Master of Science in Teaching|Master of Science in Teaching",
+				"Master of Arts in Education|Master of Arts in Education",
+				"Master of Arts in Filipino|Master of Arts in Filipino",
+				"Master of Arts in Language Studies|Master of Arts in Language Studies",
+				"Master of Arts in English Language Teaching|Master of Arts in English Language Teaching",
+				"Master of Arts in Psychology (Social Psychology)|Master of Arts in Psychology (Social Psychology)",
+				"Master of Arts in Peace & Development Studies|Master of Arts in Peace & Development Studies",
+				"Master of Arts in Philippine Studies|Master of Arts in Philippine Studies",
+				"Master of Arts in History|Master of Arts in History",
+				"Master of Arts in Global Studies (American Studies)|Master of Arts in Global Studies (American Studies)",
+				"Master of Arts in Islamic Studies (Muslim Law)|Master of Arts in Islamic Studies (Muslim Law)",
+				"Master of Arts in Nursing (Nursing Administration)|Master of Arts in Nursing (Nursing Administration)",
+				"Certificate in Governmental Management|Certificate in Governmental Management",
+				"Certificate in Professional Teaching|Certificate in Professional Teaching",
+				"Certificate in Statistics|Certificate in Statistics",
+				"Diploma in Islamic Studies|Diploma in Islamic Studies",
+				"Diploma in Community Development|Diploma in Community Development",
+				"Professional Diploma in Physical Education|Professional Diploma in Physical Education"
+					];
+				for(var option in optionArray){
+					var pair = optionArray[option].split("|");
+					var newOption = document.createElement("option");
+					newOption.value = pair[0];
+					newOption.innerHTML = pair[1];
+					s2.options.add(newOption);
+				}
+
+			}
+	}
+
+</script>
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+	<div class="wrapper wrapper--w680">
+		<div class="card card-4" style="width:115%;">
+			<div class="card-body">
+
+				<h2 class="title">Register</h2>
+
+				<form id="register" class="" action="{% url 'register:add' %}" method="post" >
+					{% csrf_token %}
+
+					<div class="row row-space">
+		                            <div class="col-2">
+						    <div class="input-group">
+							    <label class="label">first name</label>
+							    <input class="input--style-4" type="text" name="first_name">
+						    </div>
+					    </div>
+					    <div class="col-2">
+						    <div class="input-group">
+							    <label class="label">last name</label>
+							    <input class="input--style-4" type="text" name="last_name">
+						    </div>
+					    </div>
+
+					    <div class="input-group">
+						    <label class="label">College</label>
+						    <div class="rs-select js-select-simple select--no-search" >
+							    <select id="college" name="college" onchange="populate(this.id, 'course')">
+								    <option value="College of Agriculture">College of Agriculture</option>
+								    <option value="College of Business Administration and Accountancy">College of Business Administration and Accountancy</option>
+								    <option value="College of Education">College of Education</option>
+								    <option value="College of Engineering">College of Engineering</option>
+								    <option value="Division of Engineering Technology">Division of Engineering Technology</option>
+								    <option value="College of Fisheries">College of Fisheries</option>
+								    <option value="College of Forestry and Environmental Studies">College of Forestry and Environmental Studies</option>
+								    <option value="College of Health Sciences">College of Health Sciences</option>
+								    <option value="College of Hotel and Restaurant Management">College of Hotel and Restaurant Management</option>
+								    <option value="College of Information and Computing Sciences">College of Information and Computing Sciences</option>
+								    <option value="College of Natural Sciences and Mathematics">College of Natural Sciences and Mathematics</option>
+								    <option value="College of Public Affairs">College of Public Affairs</option>
+								    <option value="College of Social Sciences and Humanities">College of Social Sciences and Humanities</option>
+								    <option value="College of Sports, Physical Education and Recreation">College of Sports, Physical Education and Recreation</option>
+								    <option value="King Faisal Center for Islamic, Arabic and Asian Studies">King Faisal Center for Islamic, Arabic and Asian Studies</option>
+								    <option value="College of Law">College of Law</option>
+								    <option value="College of Medicine">College of Medicine</option>
+								    <option value="Graduate School">Graduate School</option>
+								    <option disabled="disabled" selected="selected">Choose option</option>
+							    </select>
+							    <div class="select-dropdown"></div>
+						    </div>
+					    </div>
+					    <br>
+					    <div class="input-group" >
+						    <label class="label">Course</label>
+						    <div class="rs-select js-select-simple select--no-search">
+							    <select id="course" name="course" style="width:100%;">
+								    <option disabled="disabled" selected="selected">-----Choose option-----</option>
+
+							    </select>
+							    <div class="select-dropdown"></div>
+						    </div>
+					    </div>
+					</div>
+					<div class="row row-space">
+
+						<div class="col-2">
+							<div class="input-group">
+								<label class="label">Personnel</label>
+								<div class="p-t-10">
+									<label class="radio-container m-r-45">Student
+										<input type="radio" checked="checked" name="user_type" value="Student">
+										<span class="checkmark"></span>
+									</label>
+
+									<label class="radio-container">Faculty
+										<input type="radio" name="user_type" value="Faculty">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="p-t-15">
+						<button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
