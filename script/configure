@@ -38,4 +38,4 @@ addserver
 addserver
 addserver
 
-sudo haproxy -f "$file"
+sudo haproxy -f "$file" &
