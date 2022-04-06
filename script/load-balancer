@@ -1,0 +1,43 @@
+#!/bin/sh
+
+CORE_DIR=/usr/share/capstone/
+
+help(){ \
+	printf "Usage: options\n"
+	printf "Options:"
+	printf "start - starts all there is to start( mariadb, haproxy, server management module)."
+	printf "stop - stops all running services( mariadb, haproxy, server management module)."
+	printf "restart - restarts all running services."
+	printf "configure - runs the configuration for haproxy."
+	printf "help - Prints this message."
+}
+
+start(){ \
+	sudo /opt/lampp/ctrl.sh start mysql &
+	sudo haproxy -f "$CORE_DIR"/configuration/haproxy.cfg &
+	python3 "$CORE_DIR"/django/server_management_module/manage.py runserver &
+}
+
+stop(){ \
+	sudo /opt/lampp/ctrl.sh stop mysql &
+	sudo killall -q haproxy
+	killall -q python3
+}
+
+restart(){ \
+	stop
+	start
+}
+
+configure(){ \
+	sudo "$CORE_DIR"/script/configure
+}
+
+case "$1" in
+	help) help;;
+	start) start;;
+	stop) stop;;
+	restart) restart;;
+	configure) configure;;
+	*) printf "Invalid Option"; help
+esac
