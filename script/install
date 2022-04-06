@@ -1,0 +1,53 @@
+#!/bin/sh
+
+#check if device have internet access
+if ! ping -c 1 google.com  >>/dev/null;then
+	printf "Please make sure you have internet access.\n" && exit 1
+fi
+
+#check if script is running as root
+if [ ! "$(id -u)" -eq 0 ];then
+	printf "Please run this script with root privileges.\n"
+fi
+
+#update
+sudo apt update && sudo apt upgrade
+
+#install needed programs
+sudo apt install python3-pip python3-django haproxy git
+
+#directories
+CORE_DIR="$HOME"/.local/share/capstone
+TMP_DIR="$HOME"/capstone-temp
+
+#create temp dir
+[ ! -d "$TMP_DIR" ] && mkdir -p "$TMP_DIR"
+
+#CORE_DIR="$HOME"/git/repos/capstone
+[ ! -d "$CORE_DIR" ] && mkdir -p "$CORE_DIR"
+
+#clone the repository
+cd "$TMP_DIR" && git clone https://github.com/besoniama13/capstone
+
+#mv to install
+cd "$TMP_DIR" && mv capstone/* "$CORE_DIR"
+
+#move load-balancer script to bin
+sudo mv "$CORE_DIR"/capstone/script/load-balancer /usr/bin/
+
+#remove temp dir
+rm -rf "$TMP_DIR"
+
+#make scripts executable
+chmod +x "$CORE_DIR"/script/*
+
+#run haproxy configuration
+sudo sh "$CORE_DIR"/script/configure
+
+#start server management module
+python3 "$CORE_DIR"/django/server_management_module/manage.py runserver &
+
+#start Mariadb Database
+sudo /opt/lampp/ctrl.sh start mysql &
+
+printf "DONE!"
