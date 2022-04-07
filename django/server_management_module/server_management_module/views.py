@@ -40,5 +40,5 @@ def index(request):
     user = User.objects.get(mac_address=get_mac(get_ip(request)))
     _log(user)
 
-    return render(request, 'server_management/index.html', { 'user' : user })
-#    return HttpResponseRedirect('http://192.168.16.19')
+#    return render(request, 'server_management/index.html', { 'user' : user })
+    return HttpResponseRedirect('http://192.168.4.148')
