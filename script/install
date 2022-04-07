@@ -33,7 +33,7 @@ cd "$TMP_DIR" && git clone https://gitlab.com/besonia.ma13/capstone
 cd "$TMP_DIR" && mv capstone/* "$CORE_DIR"
 
 #move load-balancer script to bin
-sudo mv "$CORE_DIR"/capstone/script/load-balancer /usr/bin/
+sudo mv "$CORE_DIR"/script/load-balancer /usr/bin/
 
 #remove temp dir
 rm -rf "$TMP_DIR"
