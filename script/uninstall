@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rm -rf  "$HOME"/.local/share/capstone
+sudo rm /usr/bin/load-balancer
+
+echo "DONE uninstalling!"
