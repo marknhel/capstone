@@ -27,7 +27,7 @@ TMP_DIR="$HOME"/capstone-temp
 [ ! -d "$CORE_DIR" ] && mkdir -p "$CORE_DIR"
 
 #clone the repository
-cd "$TMP_DIR" && git clone https://github.com/besoniama13/capstone
+cd "$TMP_DIR" && git clone https://gitlab.com/besonia.ma13/capstone
 
 #mv to install
 cd "$TMP_DIR" && mv capstone/* "$CORE_DIR"
