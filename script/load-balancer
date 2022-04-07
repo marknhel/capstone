@@ -17,6 +17,8 @@ help(){ \
 	printf "\t\trestarts all running services.\n"
 	printf "\tconfigure\n"
 	printf "\t\truns the configuration for haproxy.\n"
+	printf "\tuninstall\n"
+	printf "\t\tuninstalls load balancer setup..\n"
 	printf "\thelp\n"
 	printf "\t\tPrints this message.\n"
 }
@@ -39,7 +41,11 @@ restart(){ \
 }
 
 configure(){ \
-	sudo "$CORE_DIR"/script/configure
+	sh "$CORE_DIR"/script/configure
+}
+
+uninstall(){ \
+	sh "$CORE_DIR"/script/uninstall
 }
 
 case "$1" in
