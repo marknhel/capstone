@@ -11,7 +11,7 @@ file="$HOME"/.local/share/capstone/configuration/haproxy.cfg
 [ -z "$file" ] && touch "$file"
 
 
-printf "global\n" | tee -a "$file"
+printf "global\n" | tee "$file"
 printf "\tdaemon\n" | tee -a "$file"
 printf "\tmaxconn 256\n" | tee -a "$file"
 printf "\tlog /dev/log local0 debug\n" | tee -a "$file"
