@@ -2,14 +2,23 @@
 
 CORE_DIR=/usr/share/capstone/
 
+if [ ! "$(id -u)" -eq 0 ];then
+	printf "Please run this script with root privileges.\n" && exit 1
+fi
+
 help(){ \
-	printf "Usage: options\n"
-	printf "Options:"
-	printf "start - starts all there is to start( mariadb, haproxy, server management module)."
-	printf "stop - stops all running services( mariadb, haproxy, server management module)."
-	printf "restart - restarts all running services."
-	printf "configure - runs the configuration for haproxy."
-	printf "help - Prints this message."
+	printf "Usage : options\n\n"
+	printf "Options:\n"
+	printf "\tstart\n"
+	printf "\t\tstarts all there is to start( mariadb, haproxy, server management module).\n"
+	printf "\tstop\n"
+	printf "\t\tstops all running services( mariadb, haproxy, server management module).\n"
+	printf "\trestart\n"
+	printf "\t\trestarts all running services.\n"
+	printf "\tconfigure\n"
+	printf "\t\truns the configuration for haproxy.\n"
+	printf "\thelp\n"
+	printf "\t\tPrints this message.\n"
 }
 
 start(){ \
@@ -39,5 +48,5 @@ case "$1" in
 	stop) stop;;
 	restart) restart;;
 	configure) configure;;
-	*) printf "Invalid Option"; help
+	*) printf "Invalid Option\n"; help
 esac
