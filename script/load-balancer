@@ -22,13 +22,13 @@ help(){ \
 }
 
 start(){ \
-	sudo /opt/lampp/ctrl.sh start mysql &
+	sudo /opt/lampp/ctlscript.sh start mysql &
 	sudo haproxy -f "$CORE_DIR"/configuration/haproxy.cfg &
 	python3 "$CORE_DIR"/django/server_management_module/manage.py runserver &
 }
 
 stop(){ \
-	sudo /opt/lampp/ctrl.sh stop mysql &
+	sudo /opt/lampp/ctlscript.sh stop mysql &
 	sudo killall -q haproxy
 	killall -q python3
 }
