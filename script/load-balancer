@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CORE_DIR=/usr/share/capstone/
+CORE_DIR="$HOME"/.local/share/capstone
 
 if [ ! "$(id -u)" -eq 0 ];then
 	printf "Please run this script with root privileges.\n" && exit 1
@@ -26,7 +26,7 @@ help(){ \
 start(){ \
 	sudo /opt/lampp/ctlscript.sh start mysql &
 	sudo haproxy -f "$CORE_DIR"/configuration/haproxy.cfg &
-	python3 "$CORE_DIR"/django/server_management_module/manage.py runserver &
+	python3 "$CORE_DIR"/django/server_management_module/manage.py runserver 0.0.0.0:8000 &
 }
 
 stop(){ \
