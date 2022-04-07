@@ -7,7 +7,7 @@ fi
 
 #check if script is running as root
 if [ ! "$(id -u)" -eq 0 ];then
-	printf "Please run this script with root privileges.\n"
+	printf "Please run this script with root privileges.\n" && exit 1
 fi
 
 #update
@@ -50,4 +50,4 @@ python3 "$CORE_DIR"/django/server_management_module/manage.py runserver &
 #start Mariadb Database
 sudo /opt/lampp/ctrl.sh start mysql &
 
-printf "DONE!"
+printf "\nDONE!"
