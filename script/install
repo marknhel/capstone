@@ -44,9 +44,6 @@ chmod +x "$CORE_DIR"/script/*
 #run haproxy configuration
 sh "$CORE_DIR"/script/configure
 
-#start server management module
-cd "$CORE_DIR"/django/server_management_module/ && python3 manage.py runserver 0.0.0.0:8000 &
-
 #start Mariadb Database
 sudo /opt/lampp/ctlscript.sh start mysql &
 
