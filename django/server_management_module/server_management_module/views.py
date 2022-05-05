@@ -4,7 +4,7 @@ from django.shortcuts import render
 from ipware import get_client_ip
 from getmac import get_mac_address
 from register.models import User, Profile
-from server_management.models import Log
+from server_management.models import Log, Server
 from django.utils import timezone
 import datetime
 
@@ -24,7 +24,8 @@ def get_mac(ip_addr):
 
 def _log(user_id):
 #    log = Log(user_id = user_id, time_logged = timezone.now())
-    log = Log(user_id = user_id, time_logged = datetime.datetime.now())
+    server = Server.objects.get(ip="10.162.165.138")
+    log = Log(user_id = user_id, server = server, time_logged = datetime.datetime.now())
     log.save()
 
 def index(request):
@@ -41,4 +42,4 @@ def index(request):
     _log(user)
 
 #    return render(request, 'server_management/index.html', { 'user' : user })
-    return HttpResponseRedirect('http://192.168.4.148')
+    return HttpResponseRedirect('http://192.168.16.19')
