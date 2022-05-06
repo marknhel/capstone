@@ -10,9 +10,9 @@ help(){ \
 	printf "Usage : options\n\n"
 	printf "Options:\n"
 	printf "\tstart\n"
-	printf "\t\tstarts all there is to start( mariadb, haproxy, server management module).\n"
+	printf "\t\tstarts all there is to start( mariadb, haproxy).\n"
 	printf "\tstop\n"
-	printf "\t\tstops all running services( mariadb, haproxy, server management module).\n"
+	printf "\t\tstops all running services( mariadb, haproxy).\n"
 	printf "\trestart\n"
 	printf "\t\trestarts all running services.\n"
 	printf "\tconfigure\n"
@@ -26,7 +26,6 @@ help(){ \
 start(){ \
 	sudo /opt/lampp/ctlscript.sh start mysql &
 	sudo haproxy -f "$CORE_DIR"/configuration/haproxy.cfg &
-	python3 "$CORE_DIR"/django/server_management_module/manage.py runserver 0.0.0.0:8000 &
 }
 
 stop(){ \
