@@ -42,4 +42,4 @@ def index(request):
     _log(user)
 
 #    return render(request, 'server_management/index.html', { 'user' : user })
-    return HttpResponseRedirect('http://192.168.16.19')
+    return HttpResponseRedirect('http://10.162.168.140')
