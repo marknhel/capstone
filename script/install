@@ -14,7 +14,7 @@ fi
 #sudo apt update && sudo apt upgrade
 
 #install needed programs
-sudo apt install python3-pip python3-django haproxy git
+#sudo apt install python3-pip python3-django haproxy git
 
 #directories
 CORE_DIR="$HOME"/.local/share/capstone
