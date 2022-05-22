@@ -37,5 +37,3 @@ printf "\tbalance leastconn\n" | tee -a "$file"
 addserver
 addserver
 addserver
-
-sudo haproxy -f "$file" &
