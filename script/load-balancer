@@ -54,5 +54,6 @@ case "$1" in
 	stop) stop;;
 	restart) restart;;
 	configure) configure;;
+	uninstall) uninstall;;
 	*) printf "Invalid Option\n"; help
 esac
