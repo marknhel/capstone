@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#CORE_DIR="$HOME"/.local/share/capstone
+CORE_DIR="$HOME"/.local/share/capstone
 #
 #req_sudo(){
 #if [ ! "$(id -u)" -eq 0 ];then
