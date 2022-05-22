@@ -42,9 +42,9 @@ rm -rf "$TMP_DIR"
 chmod +x "$CORE_DIR"/script/*
 
 #run haproxy configuration
-sh "$CORE_DIR"/script/configure
+#sh "$CORE_DIR"/script/configure
 
 #start Mariadb Database
-sudo /opt/lampp/ctlscript.sh start mysql &
+#sudo /opt/lampp/ctlscript.sh start mysql &
 
 printf "\nDONE!"
