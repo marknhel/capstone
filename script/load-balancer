@@ -26,6 +26,7 @@ help(){ \
 start(){ \
 	sudo /opt/lampp/ctlscript.sh start mysql &
 	sudo haproxy -f "$CORE_DIR"/configuration/haproxy.cfg &
+	cd "$HOME"/.local/share/capstone/django/server_management_module && python manage.py runserver 0.0.0.0:8000
 }
 
 stop(){ \
