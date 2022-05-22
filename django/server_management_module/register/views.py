@@ -17,7 +17,15 @@ def get_ip(request):
 
 
 def get_mac(ip_addr):
-    return str(get_mac_address(ip=ip_addr, network_request = True))
+    mac = get_mac_address(ip=ip_addr)
+    if mac is None:
+#        if ip_addr == '10.0.1.60':
+#            return get_mac_address()
+        return HttpResponseRedirect('http://10.0.1.60:8000')
+    else:
+        return str(mac)
+
+
 
 #class IndexView(generic.ListView):
 #    template_name = 'register/index.html'

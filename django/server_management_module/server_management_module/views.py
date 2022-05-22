@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from ipware import get_client_ip
 from getmac import get_mac_address
 from register.models import User, Profile
@@ -20,26 +20,43 @@ def get_ip(request):
 
 
 def get_mac(ip_addr):
-    return str(get_mac_address(ip=ip_addr, network_request = True))
+    mac = get_mac_address(ip=ip_addr)
+    if mac is None:
+#        if ip_addr == '10.0.1.60':
+#            return get_mac_address()
+        return HttpResponseRedirect('htpp://10.0.1.60:8000')
+    else:
+        return str(mac)
 
-def _log(user_id):
-#    log = Log(user_id = user_id, time_logged = timezone.now())
+#    for i in nif.interfaces():
+#        addrs = nif.ifaddresses(i)
+#        try:
+#            if_mac = addrs[nif.AF_LINK][0]['addr']
+#            if_ip = addrs[nif.AF_INET][0]['addr']
+#        except( IndexError, KeyError):
+#            if_mac = if_ip = None
+#        if if_ip == ip:
+#            return if_mac
+
+def log(request, user_id):
+    user = get_object_or_404(User, pk=user_id)
+#    log = Log(user = user, time_logged = timezone.now())
     server = Server.objects.get(ip="10.162.165.138")
-    log = Log(user_id = user_id, server = server, time_logged = datetime.datetime.now())
+    log = Log(user_id = user, server = server, time_logged = datetime.datetime.now())
     log.save()
+    return HttpResponseRedirect('https://www.google.com')
 
 def index(request):
 
     try:
-        mac = User.objects.get(mac_address=get_mac(get_ip(request)))
-        if mac.blocked:
-#            return HttpResponse("Blocked");
-            return render(request, 'server_management/blocked.html', { 'user' : mac })
-
+        user = User.objects.get(mac_address=get_mac(get_ip(request)))
     except:
         return HttpResponseRedirect(reverse('register:index'))
+
     user = User.objects.get(mac_address=get_mac(get_ip(request)))
-    _log(user)
+
+    print("Your ip address is : ", get_ip(request))
+    print("Your mac address is : ", get_mac(get_ip(request)))
 
 #    return render(request, 'server_management/index.html', { 'user' : user })
-    return HttpResponseRedirect('http://10.162.168.140')
+    return HttpResponseRedirect('http://10.0.1.60/%s/log/' % user.pk )
