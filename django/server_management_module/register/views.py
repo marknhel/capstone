@@ -19,9 +19,9 @@ def get_ip(request):
 def get_mac(ip_addr):
     mac = get_mac_address(ip=ip_addr)
     if mac is None:
-#        if ip_addr == '10.0.1.60':
+#        if ip_addr == '10.162.165.140':
 #            return get_mac_address()
-        return HttpResponseRedirect('http://10.0.1.60:8000')
+        return HttpResponseRedirect('http://10.162.165.140:8000')
     else:
         return str(mac)
 

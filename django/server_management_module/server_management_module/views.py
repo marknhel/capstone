@@ -22,9 +22,9 @@ def get_ip(request):
 def get_mac(ip_addr):
     mac = get_mac_address(ip=ip_addr)
     if mac is None:
-#        if ip_addr == '10.0.1.60':
+#        if ip_addr == '10.162.165.140':
 #            return get_mac_address()
-        return HttpResponseRedirect('htpp://10.0.1.60:8000')
+        return HttpResponseRedirect('htpp://10.162.165.140:8000')
     else:
         return str(mac)
 
@@ -44,7 +44,7 @@ def log(request, user_id):
     server = Server.objects.get(ip="10.162.165.138")
     log = Log(user_id = user, server = server, time_logged = datetime.datetime.now())
     log.save()
-    return HttpResponseRedirect('https://www.google.com')
+    return HttpResponseRedirect('http://10.162.165.140')
 
 def index(request):
 
@@ -59,4 +59,4 @@ def index(request):
     print("Your mac address is : ", get_mac(get_ip(request)))
 
 #    return render(request, 'server_management/index.html', { 'user' : user })
-    return HttpResponseRedirect('http://10.0.1.60/%s/log/' % user.pk )
+    return HttpResponseRedirect('http://10.162.168.140/log/?id=%s' % user.pk )
