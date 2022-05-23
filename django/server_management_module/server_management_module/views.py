@@ -59,4 +59,4 @@ def index(request):
     print("Your mac address is : ", get_mac(get_ip(request)))
 
 #    return render(request, 'server_management/index.html', { 'user' : user })
-    return HttpResponseRedirect('http://10.162.168.140/log/?id=%s' % user.pk )
+    return HttpResponseRedirect('http://10.162.165.140/log/?id=%s' % user.pk )
