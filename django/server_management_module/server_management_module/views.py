@@ -41,7 +41,4 @@ def index(request):
     except:
         return HttpResponseRedirect(reverse('register:index'))
 
-    user = User.objects.get(mac_address=get_mac(get_ip(request)))
-
-
-    return render(request, 'server_management/index.html', { 'user' : user })
+    return HttpResponseRedirect('http://10.162.165.140/%s/log' % user.pk )
