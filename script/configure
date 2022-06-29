@@ -7,7 +7,7 @@ addserver() {
 	printf "\tserver %s %s\n" "$servername" "$serveraddress" | tee -a "$file"
 }
 
-file="$HOME"/.local/share/capstone/configuration/haproxy.cfg
+file="$HOME"/.local/share/capstone/configuration/haproxyy.cfg
 [ -z "$file" ] && touch "$file"
 
 
