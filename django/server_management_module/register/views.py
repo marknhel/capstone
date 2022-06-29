@@ -19,20 +19,11 @@ def get_ip(request):
 def get_mac(ip_addr):
     mac = get_mac_address(ip=ip_addr)
     if mac is None:
-#        if ip_addr == '10.162.165.140':
-#            return get_mac_address()
         return HttpResponseRedirect('http://10.162.165.140:8000')
     else:
         return str(mac)
 
 
-
-#class IndexView(generic.ListView):
-#    template_name = 'register/index.html'
-#    context_object_name = 'users'
-#
-#    def get_queryset(self):
-#        return User.objects.order_by('-username')
 
 def index(request):
     try:
@@ -63,15 +54,3 @@ def register(request):
         new_user.save()
 
         return HttpResponseRedirect('/')
-
-
-
-
-
-
-#def index(request):
-#
-#
-#    return HttpResponse("Hello, We got your information!<br> \
-#            Your IP address is " + get_ip(request) + "!<br>" + " \
-#            Your MAC address is " + get_mac(get_ip(request)) + "!")

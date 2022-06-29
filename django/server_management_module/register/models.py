@@ -33,18 +33,14 @@ class Profile(models.Model):
         ('BSAAFP', 'BSA Agricultural Food Processing'),
         ('DATCP', 'DAT Crop Production'),
         ('DABMTFP', 'DABMT Food Processing'),
-#        ]
 
-#    CBAA = [
         ('BSA', 'Bachelor of Science in Accountancy'),
         ('BSBABE', 'Bachelor of Science in Business Administration Business Economics'),
         ('BSBAM', 'Bachelor of Science in Business Administration Management'),
         ('BSBAHRM', 'Bachelor of Science in Business Administration Human Resource Management'),
         ('BSBAEM', 'Bachelor of Science in Business Administration Entrepreneurial Marketing'),
         ('BSBAE', 'Bachelor of Science in Business Administration Entrepreneurship'),
-#        ]
 
-#    CED = [
         ('BSEDB', 'Bachelor of Secondary Education Biology'),
         ('BSEDE', 'Bachelor of Secondary Education English'),
         ('BSEDF', 'Bachelor of Secondary Education Filipino'),
@@ -58,42 +54,29 @@ class Profile(models.Model):
         ('BEEDGE', 'Bachelor of Elementary Education major in General Education'),
         ('BTVEDHE', 'BTVED Home Econonomics'),
         ('BTLET', 'Bachelor of Technology and Livelihood Education major in Home Economics'),
-#        ]
 
-#    COE = [
         ('BSChemE', 'Bachelor of Science in Chemical Engineering'),
         ('BSCE', 'Bachelor of Science in Civil Engineering'),
         ('BSECE', 'Bachelor of Science in Electronics and Communications Engineering'),
         ('BSEE', 'Bachelor of Science in Electrical Engineering'),
         ('BSME', 'Bachelor of Science in Mechanical Engineering'),
-#        ]
 
-#    DET = [
         ('BSETCEM', 'Bachelor of Science in Engineering Technology (Construction Engineering Management)'),
         ('BSETERE', 'Bachelor of Science in Engineering Technology (Electrical and RenewableEnergy)'),
         ('BSETMF', 'Bachelor of Science in Engineering Technology (Machining and Fabrication)'),
         ('DITCT', 'Diploma in Technology major in Construction Technology'),
         ('DITMST', 'Diploma in Technology major in Machine Shop Technology'),
-#        ]
 
-#    COF = [
         ('BSF', 'Bachelor of Science in Fisheries'),
         ('DITFP', 'Diploma in Technology major in Fish Processing'),
         ('DITA', 'Diploma in Technology major in Acquaculture'),
-#        ]
 
-#    CFES = [
         ('BSF', 'Bachelor of Science in Forestry'),
         ('BSFAF', 'Bachelor of Science in Forestry major in Agroforestry'),
         ('BSES', 'Bachelor of Science in Environmental Science'),
-#        ]
 
-#    CHARM = [
         ('BSHM', 'Bachelor of Science in Hospitality Management'),
         ('BSTM', 'Bachelor of Science in Tourism Management'),
-#        ]
-
-#    CICS = [
         ('BSCS', 'Bachelor of Science in Computer Science'),
         ('BSIS', 'Bachelor of Science in Information System'),
         ('BSEMC', 'Bachelor of Science in Entertainment and Multimedia Computing'),
