@@ -13,7 +13,7 @@ file="$HOME"/.local/share/capstone/configuration/haproxy.cfg
 
 printf "global\n" | tee "$file"
 printf "\tdaemon\n" | tee -a "$file"
-printf "\tmaxconn 256\n" | tee -a "$file"
+printf "\tmaxconn 500\n" | tee -a "$file"
 printf "\tlog /dev/log local0 debug\n" | tee -a "$file"
 printf "\tstats socket /run/haproxy.sock user haproxy group haproxy mode 660 level admin\n" | tee -a "$file"
 printf "\tmaster-worker\n\n" | tee -a "$file"
