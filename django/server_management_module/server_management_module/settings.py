@@ -83,18 +83,15 @@ WSGI_APPLICATION = 'server_management_module.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'server_management_module',
         'USER' : 'smm',
-        'PASSWORD' : 'moodlepass',
+        'PASSWORD' : 'moddlepass',
         'HOST' : 'localhost',
-        'PORT' : '3306',
-        'OPTIONS' : {
-            'unix_socket' : '/opt/lampp/var/mysql/mysql.sock',
-
-            }
+        'PORT' : '5432',
     }
 }
+
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',

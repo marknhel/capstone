@@ -19,7 +19,7 @@ def get_ip(request):
 def get_mac(ip_addr):
     mac = get_mac_address(ip=ip_addr)
     if mac is None:
-        return HttpResponseRedirect('http://10.162.165.140:8000')
+        return HttpResponseRedirect('http://192.168.147.30')
     else:
         return str(mac)
 
@@ -30,6 +30,10 @@ def index(request):
         mac = User.objects.get(mac_address=get_mac(get_ip(request)))
         print(mac)
         if mac is not None:
+
+            if mac.blocked:
+                return render(request, 'server_management/blocked.html')
+
             return HttpResponseRedirect('/')
     except:
         return render(request, 'register/register.html')
@@ -53,4 +57,4 @@ def register(request):
         new_profile.save()
         new_user.save()
 
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('http://192.168.147.30:8001')

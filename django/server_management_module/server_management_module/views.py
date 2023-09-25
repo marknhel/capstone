@@ -22,17 +22,17 @@ def get_ip(request):
 def get_mac(ip_addr):
     mac = get_mac_address(ip=ip_addr)
     if mac is None:
-        return HttpResponseRedirect('htpp://10.162.165.140:8000')
+        return HttpResponseRedirect('htpp://192.168.147.30:8001')
     else:
         return str(mac)
 
 
 def log(request, user_id):
     user = get_object_or_404(User, pk=user_id)
-    server = Server.objects.get(ip="10.162.165.138")
+    server = Server.objects.get(ip="127.0.0.1")
     log = Log(user_id = user, server = server, time_logged = datetime.datetime.now())
     log.save()
-    return HttpResponseRedirect('http://10.162.165.140')
+    return HttpResponseRedirect('http://192.168.147.30:8001')
 
 def index(request):
 
@@ -41,4 +41,4 @@ def index(request):
     except:
         return HttpResponseRedirect(reverse('register:index'))
 
-    return HttpResponseRedirect('http://10.162.165.140/%s/log' % user.pk )
+    return HttpResponseRedirect('http://192.168.147.30:8001')
